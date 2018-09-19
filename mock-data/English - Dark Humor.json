@@ -1,0 +1,20 @@
+[
+  {
+    "id": "{E52B9900-D2EA-401F-BD31-99BAED0D0C7C}",
+    "name": "#1",
+    "author": "Unknown",
+    "content": "Doctor: \"I'm sorry but you suffer from a terminal illness and have only 10 to live.\"\nPatient: \"What do you mean, 10? 10 what? Months? Weeks?!\"\nDoctor: \"Nine.\"",
+    "language": "English",
+    "category": "Dark Humor",
+    "publishDate": "2015-02-11"
+  },
+  {
+    "id": "{3A1E0150-7643-42EA-8F34-B6C706A9B940}",
+    "name": "#2",
+    "author": "Unknown",
+    "content": "- Wow, honey, I never thought our son would go that far!\n- Yeah, the catapult is really amazing. Go get our daughter!",
+    "language": "English",
+    "category": "Dark Humor",
+    "publishDate": "2013-11-21"
+  }
+]

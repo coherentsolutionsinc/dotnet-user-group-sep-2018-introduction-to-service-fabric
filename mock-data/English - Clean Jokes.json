@@ -1,0 +1,20 @@
+[
+  {
+    "id": "{ED6358F2-E9BB-4173-B4E1-86BE076B07DD}",
+    "name": "#1",
+    "author": "Unknown",
+    "content": "My dog used to chase people on a bike a lot. It got so bad, finally I had to take his bike away.",
+    "language": "English",
+    "category": "Clean Jokes",
+    "publishDate": "2011-12-09"
+  },
+  {
+    "id": "{EC7B74F1-7F59-4E39-8F48-12F2009DE6E8}",
+    "name": "#2",
+    "author": "Unknown",
+    "content": "I’ve always thought my neighbors were quite nice people. But then they put a password on their Wi-Fi.",
+    "language": "English",
+    "category": "Clean Jokes",
+    "publishDate": "2015-05-04"
+  }
+]

@@ -1,0 +1,21 @@
+﻿syntax: glob
+
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.log
+
+.vs/
+.vscode/
+
+[Bb]in/
+[Oo]bj/
+[Pp]kg/
+[Pp]ackages/
+
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+publish/

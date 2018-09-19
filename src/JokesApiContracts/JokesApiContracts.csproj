@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Copyright>2018 Coherent Solutions, Inc</Copyright>
+    <Company>Coherent Solutions, Inc</Company>
+    <Authors>Coherent Solutions, Inc</Authors>
+    <Product>ISSoft Insights All-Jokes Demo</Product>
+    <Description>This project contains shared models used for communication between JokesApi &amp; JokesWeb</Description>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+</Project>

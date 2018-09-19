@@ -1,0 +1,36 @@
+﻿body {
+    padding-bottom: 20px;
+    padding-top: 50px;
+}
+
+/* Wrapping element */
+
+/* Set some basic padding to keep content from hitting the edges */
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Import https://www.abeautifulsite.net/whipping-file-inputs-into-shape-with-bootstrap-3 */
+
+.btn-file {
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-file input[type=file] {
+    background: white;
+    cursor: inherit;
+    display: block;
+    filter: alpha(opacity=0);
+    font-size: 100px;
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    outline: none;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}

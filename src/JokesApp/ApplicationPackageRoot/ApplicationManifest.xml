@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="JokesAppType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="JokesApiService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="JokesApiService_PartitionCount" DefaultValue="1" />
+    <Parameter Name="JokesApiService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="JokesWebService_InstanceCount" DefaultValue="-1" />
+  </Parameters>
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
+       should match the Name and Version attributes of the ServiceManifest element defined in the 
+       ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="JokesApiServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <EnvironmentOverrides CodePackageRef="Code">
+      <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value="Development" />
+    </EnvironmentOverrides>
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="JokesWebServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <EnvironmentOverrides CodePackageRef="Code">
+      <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value="Development" />
+    </EnvironmentOverrides>
+  </ServiceManifestImport>
+  <DefaultServices>
+    <Service Name="JokesApiService/English" ServicePackageActivationMode="ExclusiveProcess">
+      <StatefulService ServiceTypeName="JokesApiServiceType" TargetReplicaSetSize="[JokesApiService_TargetReplicaSetSize]" MinReplicaSetSize="[JokesApiService_MinReplicaSetSize]">
+        <NamedPartition>
+          <Partition Name="Clean Jokes" />
+          <Partition Name="Dark Humor" />
+        </NamedPartition>
+      </StatefulService>
+    </Service>
+    <Service Name="JokesApiService/Русский/Народные" ServicePackageActivationMode="ExclusiveProcess">
+      <StatefulService ServiceTypeName="JokesApiServiceType" TargetReplicaSetSize="[JokesApiService_TargetReplicaSetSize]" MinReplicaSetSize="[JokesApiService_MinReplicaSetSize]">
+        <NamedPartition>
+          <Partition Name="Народные" />
+        </NamedPartition>
+      </StatefulService>
+    </Service>
+    <Service Name="JokesApiService/Русский/Советские" ServicePackageActivationMode="ExclusiveProcess">
+      <StatefulService ServiceTypeName="JokesApiServiceType" TargetReplicaSetSize="[JokesApiService_TargetReplicaSetSize]" MinReplicaSetSize="[JokesApiService_MinReplicaSetSize]">
+        <NamedPartition>
+          <Partition Name="Советские" />
+        </NamedPartition>
+      </StatefulService>
+    </Service>
+    <Service Name="JokesWebService" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="JokesWebServiceType" InstanceCount="[JokesWebService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+</ApplicationManifest>
