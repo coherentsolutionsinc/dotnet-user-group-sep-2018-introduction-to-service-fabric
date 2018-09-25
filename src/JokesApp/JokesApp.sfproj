@@ -30,6 +30,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JokesApi\JokesApi.csproj" />
+    <ProjectReference Include="..\JokesStats\JokesStats.csproj" />
     <ProjectReference Include="..\JokesWeb\JokesWeb.csproj" />
   </ItemGroup>
   <ItemGroup>

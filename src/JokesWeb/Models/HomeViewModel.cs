@@ -33,6 +33,8 @@ namespace JokesWeb.Models
 
         public string CurrentCategory { get; set; }
 
+        public int CurrentViewedCount { get; set; }
+
         public JokesLanguageModel[] Languages { get; set; }
 
         public JokeModel[] Jokes { get; set; }

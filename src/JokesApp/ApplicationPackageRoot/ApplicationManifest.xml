@@ -5,10 +5,16 @@
     <Parameter Name="JokesApiService_PartitionCount" DefaultValue="1" />
     <Parameter Name="JokesApiService_TargetReplicaSetSize" DefaultValue="3" />
     <Parameter Name="JokesWebService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="JokesStatsActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="JokesStatsActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="JokesStatsActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="JokesStatsPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="JokesApiServicePkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -50,6 +56,11 @@
       <StatelessService ServiceTypeName="JokesWebServiceType" InstanceCount="[JokesWebService_InstanceCount]">
         <SingletonPartition />
       </StatelessService>
+    </Service>
+    <Service Name="JokesStatsActorService" GeneratedIdRef="b34ead20-4d82-4b83-a311-93db5d5cfc96|Persisted">
+      <StatefulService ServiceTypeName="JokesStatsActorServiceType" TargetReplicaSetSize="[JokesStatsActorService_TargetReplicaSetSize]" MinReplicaSetSize="[JokesStatsActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[JokesStatsActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
     </Service>
   </DefaultServices>
 </ApplicationManifest>

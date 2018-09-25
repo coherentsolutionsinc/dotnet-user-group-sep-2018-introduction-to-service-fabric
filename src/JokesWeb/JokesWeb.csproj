@@ -15,6 +15,7 @@
     <PackageReference Include="AutoMapper" Version="7.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
     <PackageReference Include="Microsoft.ServiceFabric" Version="6.3.176" />
+    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="3.2.176" />
     <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="3.2.176" />
     <PackageReference Include="Microsoft.ServiceFabric.Services" Version="3.2.176" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -26,6 +27,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\JokesApiContracts\JokesApiContracts.csproj" />
+    <ProjectReference Include="..\JokesStats.Interfaces\JokesStats.Interfaces.csproj" />
   </ItemGroup>
 
   <ItemGroup>

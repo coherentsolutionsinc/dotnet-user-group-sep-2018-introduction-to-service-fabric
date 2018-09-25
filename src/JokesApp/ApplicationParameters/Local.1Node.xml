@@ -5,5 +5,8 @@
     <Parameter Name="JokesApiService_MinReplicaSetSize" Value="1" />
     <Parameter Name="JokesApiService_TargetReplicaSetSize" Value="1" />
     <Parameter Name="JokesWebService_InstanceCount" Value="1" />
+    <Parameter Name="JokesStatsActorService_PartitionCount" Value="1" />
+    <Parameter Name="JokesStatsActorService_TargetReplicaSetSize" Value="1" />
+    <Parameter Name="JokesStatsActorService_MinReplicaSetSize" Value="1" />
   </Parameters>
 </Application>

@@ -8,12 +8,6 @@
     <div class="col-lg-3">
         <div class="row">
             <div class="col-lg-12">
-                @if (!Model.Languages.Any())
-                {
-                    <div class="alert alert-primary" role="alert">
-                        No languages to show!
-                    </div>
-                }
                 @for (var index = 0; index < Model.Languages.Length; index++)
                 {
                     var language = Model.Languages[index];
@@ -56,6 +50,12 @@
                         </div>
                     </div>
                 }
+                @if (!Model.Languages.Any())
+                {
+                    <div class="alert alert-primary" role="alert">
+                        No languages to show!
+                    </div>
+                }
             </div>
         </div>
         <hr />
@@ -93,12 +93,6 @@
         </div>
     </div>
     <div class="col-lg-9">
-        @if (!Model.Jokes.Any())
-        {
-            <div class="alert alert-primary" role="alert">
-                No jokes to show!
-            </div>
-        }
         @foreach (var joke in Model.Jokes.OrderBy(joke => joke.Name, StringComparer.OrdinalIgnoreCase))
         {
             <div class="card mb-3">
@@ -111,6 +105,14 @@
                 </div>
             </div>
         }
+        @if (!Model.Jokes.Any())
+        {
+            <div class="alert alert-primary" role="alert">
+                No jokes to show!
+            </div>
+
+        }
+        <div style="position: absolute;bottom: 0;"><small>You've viewed this page @Model.CurrentViewedCount time(s).</small></div>
     </div>
 </div>
 

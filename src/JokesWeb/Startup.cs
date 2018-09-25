@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,6 +40,23 @@ namespace JokesWeb
             }
 
             app.UseStaticFiles();
+
+            app.Use(
+                (
+                    context,
+                    func) =>
+                {
+                    var isKnown = context.Request.Cookies.TryGetValue("user-cookie", out var track);
+                    if (!isKnown)
+                    {
+                        track = Guid.NewGuid().ToString("N");
+                        context.Response.Cookies.Append("user-cookie", track);
+                    }
+
+                    context.Items["user-cookie"] = track;
+
+                    return func();
+                });
 
             app.UseMvc(
                 routes =>
