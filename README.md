@@ -6,6 +6,7 @@ This project was presented at .NET User Group Meetup (September 2018) and repres
 
 The following source code contains:
 * JokesApi/ - ASP.NET Core Web API service implemented as Service Fabric stateful service. The reliable state is used to store service data.
+* JokesStats/ - .NET Core based statistics service implemented as Service Fabric actor. The actor state is used to store statistics.
 * JokesWeb/ - ASP.NET Core MVC application implemented as Service Fabric stateless service.
 * JokesApp/ - Service Fabric application project (combines JokesWeb & JokesApi)
 * JokesApiContracts/ - shared models used for communication between JokesApi & JokesWeb
