@@ -10,6 +10,7 @@ The following source code contains:
 * JokesWeb/ - ASP.NET Core MVC application implemented as Service Fabric stateless service.
 * JokesApp/ - Service Fabric application project (combines JokesWeb & JokesApi)
 * JokesApiContracts/ - shared models used for communication between JokesApi & JokesWeb
+* JokesStats.Interfaces/ - JokesStats actor interface and models
 
 ## Building demo project
 
