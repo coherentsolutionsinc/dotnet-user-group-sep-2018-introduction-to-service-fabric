@@ -48,7 +48,7 @@ namespace JokesApi
                                             services.AddSingleton(this.Partition);
                                             services.AddSingleton(this.StateManager);
 
-                                            services.AddTransient<IJokesService, FabricJokesService>();
+                                            services.AddSingleton<IJokesService, FabricJokesService>();
                                         })
                                    .UseStartup<Startup>()
                                    .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)

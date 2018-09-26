@@ -46,8 +46,8 @@ namespace JokesWeb
                                         services =>
                                         {
                                             services.AddSingleton(serviceContext);
-                                            services.AddTransient<IJokesApiClient, FabricJokesApiClient>();
-                                            services.AddTransient<IJokesStatsClient, FabricJokesStatsClient>();
+                                            services.AddSingleton<IJokesApiClient, FabricJokesApiClient>();
+                                            services.AddSingleton<IJokesStatsClient, FabricJokesStatsClient>();
                                         })
                                    .UseContentRoot(Directory.GetCurrentDirectory())
                                    .UseStartup<Startup>()

@@ -58,8 +58,6 @@ namespace JokesWeb.Clients
             IEnumerable<JokeImportModel> importJokes,
             CancellationToken cancellationToken)
         {
-            var resolver = new ServicePartitionResolver();
-
             var client = new HttpClient();
 
             var serializer = JsonSerializer.Create();
@@ -69,7 +67,7 @@ namespace JokesWeb.Clients
                 foreach (var byCategory in byLanguage.GroupBy(importJoke => importJoke.Category))
                 {
                     var tuple = await this.ResolveServiceAsync(byLanguage.Key, byCategory.Key);
-                    var partition = await resolver.ResolveAsync(
+                    var partition = await ServicePartitionResolver.GetDefault().ResolveAsync(
                         tuple.serviceName,
                         new ServicePartitionKey(tuple.partitionName),
                         cancellationToken);
@@ -148,10 +146,9 @@ namespace JokesWeb.Clients
             CancellationToken cancellationToken)
         {
             var client = new HttpClient();
-            var resolver = new ServicePartitionResolver();
 
             // Resolve information about 'Partition'
-            var partition = await resolver.ResolveAsync(serviceName, new ServicePartitionKey(partitionName), cancellationToken);
+            var partition = await ServicePartitionResolver.GetDefault().ResolveAsync(serviceName, new ServicePartitionKey(partitionName), cancellationToken);
 
             // Get endpoint address information and retrieve ServiceEndpoint's address in particular.
             var address = partition.GetEndpoint().Address;
