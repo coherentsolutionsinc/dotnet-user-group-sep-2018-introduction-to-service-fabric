@@ -54,7 +54,7 @@ This project is owned by [Coherent Solutions][1].
 
 ## License
 
-This project is licensed under the MS-PL License - see the [LICENSE.md][2] for details.
+This project is licensed under the MIT License - see the [LICENSE.md][2] for details.
 
 [1]: https://www.coherentsolutions.com/ "Coherent Solutions Inc."
 [2]: LICENCE.md "License"
